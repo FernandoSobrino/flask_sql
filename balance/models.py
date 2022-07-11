@@ -42,11 +42,9 @@ class DBManager:
                 indice += 1
             self.movimientos.append(movimiento)
 
-        conexion.close
+        conexion.close()
 
         return self.movimientos
 
 
-        """
-        SELECT id,fecha,concepto,tipo,cantidad FROM MOVIMIENTOS ORDER BY cantidad DESC
-        """
+       

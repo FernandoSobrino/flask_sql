@@ -1,0 +1,82 @@
+header {
+    background-color: #ed02a7c4;
+    color: white;
+    height: 50px;
+    font-size: large;
+    line-height: 50px;
+    padding-left: 25px;
+}
+
+nav {
+    background-color: #09816b;
+    color: white;
+    height: 25px;
+    font-size: medium;
+    line-height: 25px;
+    padding-left: 25px;
+}
+
+nav.main-menu a {
+    color: white
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+table.paper {
+    width: 100%;
+
+}
+
+.titulo-tabla {
+    border-bottom: #09816b 1px solid;
+    text-align: left;
+}
+
+.numero {
+    text-align: right;
+}
+
+table.paper .error {
+    font-size: small;
+    padding-left: 40px;
+    color: #990000
+}
+
+.pie-de-pagina {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: solid 1px #ed02a7c4;
+}
+
+.lista-vacia {
+    text-align: center;
+    padding: 20px;
+    color: #666666;
+}
+
+/* Estilos del formulario */
+
+.campo-formulario label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0;
+    margin-top: .5rem;
+
+}
+
+.campo-formulario .radio-label {
+   display: inline-block;
+   margin-right: 2rem;
+   margin-bottom: 1rem;
+   margin-top: 1rem;
+}
+
+.campo-formulario input:not([type="radio"]) {
+    width: 100%;
+}

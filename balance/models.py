@@ -46,3 +46,17 @@ class DBManager:
         conexion.close()
 
         return self.movimientos
+
+    def borrar(self,id):
+        consulta = "DELETE FROM movimientos WHERE id=?"
+        conexion = sqlite3.connect(self.ruta)
+        cursor = conexion.cursor()
+        resultado = False
+        try:
+            cursor.execute(consulta,(id,))
+            conexion.commit()
+            resultado = True
+        except:
+            conexion.rollback()
+        conexion.close()
+        return resultado

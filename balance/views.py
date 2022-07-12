@@ -1,6 +1,8 @@
-from flask import render_template
+from flask import render_template, request
+
 
 from . import app
+from .forms import MovimientosForm
 from .models import DBManager
 
 RUTA = 'data/balance.db'
@@ -17,7 +19,9 @@ def nuevo():
 
 @app.route("/modificar/<int:id>",methods=["GET","POST"])
 def actualizar(id):
-    return f"Actualizar el movimiento con ID = {id}"
+    if request.method == "GET":
+        formulario = MovimientosForm()
+        return render_template("form_movimiento.html",form=formulario)
 
 
 @app.route("/borrar/<int:id>", methods=["GET", "POST"])

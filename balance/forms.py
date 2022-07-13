@@ -9,4 +9,4 @@ class MovimientosForm(FlaskForm):
     tipo = RadioField(choices=[("I", "Ingreso"), ("G", "Gasto")])
     cantidad = DecimalField("Cantidad", places=2)
 
-    submit = SubmitField("Guardar")
+    submit = SubmitField("Guardar", render_kw={"class":"green-button"})

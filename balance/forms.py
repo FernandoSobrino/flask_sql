@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import DateField, FloatField, HiddenField, RadioField, StringField, SubmitField
-
+from wtforms.validators import DataRequired, Length
 
 class MovimientosForm(FlaskForm):
     id = HiddenField()
-    fecha = DateField("Fecha")
-    concepto = StringField("Concepto")
+    fecha = DateField("Fecha", validators=[DataRequired(message="Debes introducir una fecha")])
+    concepto = StringField("Concepto",validators=[DataRequired(message="Debes escribir un concepto del movimiento")])
     tipo = RadioField(choices=[("I", "Ingreso"), ("G", "Gasto")])
     cantidad = FloatField("Cantidad")
 

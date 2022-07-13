@@ -1,5 +1,5 @@
 from datetime import date
-from flask import render_template, request
+from flask import render_template, redirect, request, url_for
 
 
 from . import app
@@ -35,9 +35,19 @@ def actualizar(id):
     elif request.method == "POST":
         form = MovimientosForm(data=request.form)
         if form.validate():
-            return "Guardo los datos"
+            db = DBManager(RUTA)
+            consulta = "UPDATE movimientos SET fecha=?, concepto=?, tipo=?, cantidad=? WHERE id=?"
+            params = (
+                form.fecha.data,
+                form.concepto.data,
+                form.tipo.data,
+                form.cantidad.data,
+                form.id.data)
+            resultado = db.consultaConParametros(consulta, params)
+            if resultado:
+                return redirect(url_for("inicio"))
+            return "No se ha podido guardar en la base de datos"
         return "El formulario tiene errores"
-        
 
 
 @app.route("/borrar/<int:id>", methods=["GET", "POST"])
@@ -46,5 +56,5 @@ def eliminar(id):
     #esta_borrado = db.borrar(id)
     consulta = "DELETE FROM movimientos WHERE id=?"
     params = (id,)
-    esta_borrado = db.consultaConParametros(consulta,params)
+    esta_borrado = db.consultaConParametros(consulta, params)
     return render_template("borrar.html", resultado=esta_borrado)

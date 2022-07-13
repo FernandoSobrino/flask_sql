@@ -77,7 +77,7 @@ table.paper .error {
 
 }
 
-.campo-formulario .radio-label {
+.campo-formulario .radio-label, .campo-formulario>input[type="radio"]~label{
    display: inline-block;
    margin-right: 2rem;
    margin-bottom: 1rem;
@@ -87,3 +87,4 @@ table.paper .error {
 .campo-formulario input:not([type="radio"]) {
     width: 100%;
 }
+

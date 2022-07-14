@@ -16,25 +16,24 @@
 <body>
   {% include 'components/header.html' %}
   {% include 'components/navbar.html' %}
-  
+
   <main>
     {% with mensajes = get_flashed_messages() %}
-      {% if mensajes %}
-        <div class="exito-flash">
-          <p>
-            <ion-icon name="warning-sharp" class="icono-error"></ion-icon>
-          </p>
-          <div class="mensajes-flash">
-            {% for error in mensajes %}
-            <p>{{ error }}</p>
-            {% endfor %}
-
-          </p>
-        </div>
-      {% endif %}
+    {% if mensajes %}
+    <div class="exito-flash">
+      <p>
+        <ion-icon name="warning-sharp" class="icono-error"></ion-icon>
+      </p>
+      <div class="mensajes-flash">
+        {% for msg in mensajes %}
+        <p>{{ msg }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
     {% endwith %}
-    
-    
+
+
     {% block contenido %}
     <h1>{% block page_title %}{% endblock %}</h1>
     {% endblock %}
